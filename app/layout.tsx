@@ -1,16 +1,10 @@
+import NavBar from "./components/NavBar";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Manrope } from "next/font/google";
+import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${manrope.className} min-h-dvh flex flex-col justify-between`}
       >
-        {children}
+        <NavBar />
+        <div className="flex-1"> {children}</div>
+        <Footer />
+        <Toaster position="bottom-right" reverseOrder={true} />
       </body>
     </html>
   );
