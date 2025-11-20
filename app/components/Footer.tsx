@@ -17,7 +17,7 @@ function Footer() {
   return (
     <footer className="bg-[#241520] pt-20 text-white">
       <Container>
-        <div className="flex justify-between items-center pb-20 border-b border-white">
+        <div className="flex justify-between items-center pb-20 border-b border-white flex-wrap gap-5">
           <Image src={logo} alt="stylicle" width={194} height={42} />
           <ul className="flex gap-x-3">
             <li>
@@ -66,7 +66,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="mt-20 flex justify-between mb-40">
+        <div className="mt-20 flex justify-between mb-40 flex-wrap">
           <div>
             <h4
               className={`text-2xl  font-bold ${playfairDisplay.className} mb-5`}

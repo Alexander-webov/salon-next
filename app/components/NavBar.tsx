@@ -13,7 +13,7 @@ function NavBar() {
             <Image src={logo} alt="stylicle" width={194} height={42} />
           </Link>
 
-          <ul className="flex gap-10">
+          <ul className="flex gap-2 sm:gap-10 ">
             <li>
               <Link href="/">Home</Link>
             </li>

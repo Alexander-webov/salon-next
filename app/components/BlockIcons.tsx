@@ -35,7 +35,7 @@ const iconsInfo = [
 ];
 function BlockIcons() {
   return (
-    <ul className="flex justify-between items-center">
+    <ul className="flex justify-between items-center flex-wrap">
       {iconsInfo.map((icon) => {
         return (
           <li key={icon.text} className="relative flex items-center flex-col">

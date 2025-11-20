@@ -18,10 +18,15 @@ function SalonPageClient({ salon, playfairClassName }: Props) {
   const [state, formAction] = useActionState(bookingSalon, initialState);
 
   useEffect(() => {
+    if (!state.message) return;
+
     if (state.message === "Booking created successfully") {
       toast.success(state.message);
+    } else {
+      toast.error(state.message);
     }
   }, [state.message]);
+
   return (
     <main className="pb-20">
       <section className="relative min-h-[480px] flex items-end text-white">
