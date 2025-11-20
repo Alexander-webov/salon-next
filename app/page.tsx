@@ -70,7 +70,7 @@ export default function Home() {
                 majority have suffered alteration in some form.
               </p>
             </div>
-            <div className="bg-white p-4 sm:p-6 rounded-4xl max-w-6xl w-full">
+            <div className="bg-white p-4 sm:p-6 rounded-4xl max-w-7xl w-full">
               <form
                 action={formAction}
                 className="flex flex-col gap-4 xl:flex-row md:items-center md:justify-between"

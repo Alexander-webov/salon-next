@@ -123,7 +123,7 @@ function page() {
           />
           <textarea
             placeholder="Any Note For Us"
-            className="w-full border p-3 rounded-lg text-sm sm:text-base min-h-[160px] sm:min-h-[200px]"
+            className="w-full border p-3 rounded-lg text-sm sm:text-base  sm:min-h-[200px]"
           ></textarea>
           <button className="w-full bg-[#422A3C] p-4 sm:p-5 rounded-lg border-none cursor-pointer text-white text-sm sm:text-base font-semibold">
             Submit
