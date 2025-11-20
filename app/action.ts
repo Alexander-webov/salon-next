@@ -15,7 +15,7 @@ export async function bookingSalon(
   const email = formData.get("email") as string | null;
   const message = formData.get("message") as string | null;
   if (!name || !phone || !address || !date) {
-    return { message: "Please fill all fields" };
+    return { message: "ERROR: Please fill all fields" };
   }
 
   await new Promise((r) => setTimeout(r, 1000));

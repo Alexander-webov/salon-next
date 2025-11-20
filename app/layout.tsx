@@ -24,7 +24,24 @@ export default function RootLayout({
         <NavBar />
         <div className="flex-1"> {children}</div>
         <Footer />
-        <Toaster position="bottom-right" reverseOrder={true} />
+        <Toaster
+          position="top-right"
+          containerStyle={{ margin: "8px" }}
+          toastOptions={{
+            success: {
+              duration: 3000,
+            },
+            error: {
+              duration: 5000,
+            },
+            style: {
+              fontSize: "24px",
+              maxWidth: "500px",
+              width: "100%",
+              padding: "16px 24px",
+            },
+          }}
+        />
       </body>
     </html>
   );
