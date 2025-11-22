@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Demo - https://salon-us.netlify.app/
 
-## Getting Started
+# Stylicle — Beauty & Wellness Booking Platform
 
-First, run the development server:
+A modern landing + booking experience for beauty and wellness salons, built with **Next.js App Router**.  
+The project demonstrates real-world features: dynamic routes, server actions, form handling, and a clean responsive UI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **React** + **TypeScript**
+- **Server Actions** (form handling on the server)
+- **Tailwind CSS**
+- **react-hot-toast** (notifications)
+- **Next Font** (`next/font/google`)
+- **Next Image** (`next/image`)
+
+---
+
+## Features
+
+### 1. Landing page (`/`)
+
+- Hero section with background image and booking form.
+- Booking form:
+  - Name, phone, salon, date.
+  - Uses **server action** (`bookingSalon`) to handle submission.
+  - Validation on the server (required fields).
+  - Success / error messages via **react-hot-toast** and `useActionState`.
+  - Button state controlled with `useFormStatus` (`Sending...`, disabled while pending).
+- Services section with recommended salons.
+- Testimonials section with slider.
+- Newsletter subscription section.
+- Fully responsive layout (mobile → desktop).
+
+### 2. Dynamic salon pages (`/salons/[slug]`)
+
+- Predefined salon data stored in `app/lib/salonsData.ts`.
+- **Dynamic routes** for each salon: `/salons/glow-bar`, `/salons/blush-room`, etc.
+- Server component (`page.tsx`) resolves `params.slug` and returns 404 via `notFound()` if salon is missing.
+- Client component (`SalonPageClient`) receives the salon data and renders:
+  - Hero section with salon image, rating and address.
+  - “About this salon” content block.
+  - Service highlights (cards).
+  - **Per-salon booking form** with the same server action (`bookingSalon`).
+
+### 3. Contact page (`/contact`)
+
+- Hero section with title and description.
+- Two-column layout (image + text block).
+- Contact info cards: address, email, phone.
+- Contact form:
+  - Name, email, phone, message.
+  - Prepared for integration with a server action or API route.
+- Fully responsive (stacked layout on mobile, side-by-side on desktop).
+
+### 4. About page (`/about`)
+
+- Hero section with title and CTA button.
+- “Our values” section with three value cards.
+- Split layout with image + text card describing the platform.
+- “The start of the journey” section with story and methodology steps.
+- Matches the design style of the homepage and footer.
+
+---
+
+## Project Structure (simplified)
+
+```txt
+app/
+  layout.tsx           # Root layout, global styles & metadata
+  page.tsx             # Home (booking landing)
+  about/
+    page.tsx           # About page
+  contact/
+    page.tsx           # Contact page
+  salons/
+    [slug]/
+      page.tsx         # Server component: resolve salon by slug
+      SalonPageClient.tsx  # Client component: UI + booking form
+  components/
+    Container.tsx
+    Title.tsx
+    Card.tsx
+    BlockIcons.tsx
+    SliderReview.tsx
+    ButtonBookNow.tsx
+  lib/
+    salonsData.ts      # Static salon data (name, address, rating, slug)
+  action.ts            # Server action: bookingSalon
+public/
+  ...                  # Images, icons, logo, etc.
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
